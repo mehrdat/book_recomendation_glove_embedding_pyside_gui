@@ -6,10 +6,8 @@ from PySide6.QtCore import Qt
 import faiss
 import sys
 
-# Load precomputed embeddings
 book_embeddings = np.load('book_embeddings.npy')
 
-# Load books dataset
 books = pd.read_csv('Books_rating.csv')
 
 def glove_load(file_path):
@@ -22,7 +20,7 @@ def glove_load(file_path):
             embeddings_index[word] = coefs
     return embeddings_index
 
-# Load GloVe embeddings
+# Load GloVe 
 glove_embedding = glove_load('glove.6B.100d.txt')
 
 def get_sentence_embedding(sentence, embeddings_index, embedding_dim=100):
@@ -41,7 +39,7 @@ def get_book_recommendations(input_text, top_k=10):
 
     recommendations = []
     seen_titles = set()
-    for idx in top_indices[0][1:]:  # Exclude the first one as it is the query itself
+    for idx in top_indices[0][1:]: 
         book_info = books.iloc[idx]
         title = book_info['Title']
         if title not in seen_titles:
