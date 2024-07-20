@@ -74,8 +74,8 @@ class BookRecommendationApp(QMainWindow):
         layout.addWidget(self.slider_label)
         
         self.result_count = QSlider(Qt.Horizontal)
-        self.result_count.setMinimum(1)
-        self.result_count.setMaximum(20)
+        self.result_count.setMinimum(2)
+        self.result_count.setMaximum(50)
         self.result_count.setValue(10)
         layout.addWidget(self.result_count)
         
